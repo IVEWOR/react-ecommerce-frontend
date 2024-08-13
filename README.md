@@ -6,9 +6,9 @@ Simple React Ecommerce Frontend
 - [ ] Homepage
 - [x] Category Page
 - [x] All Categories Page
-- [ ] Product Page
+- [x] Product Page
 - [x] All Products Page
-- [ ] Add To Cart
+- [x] Add To Cart
 - [ ] Checkout
 
 

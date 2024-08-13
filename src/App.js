@@ -1,14 +1,17 @@
 import { BrowserRouter as Router } from "react-router-dom";
 import SiteRoutes from "./components/SiteRoutes";
 import Header from "./components/header/Header";
+import { CartProvider } from "./context/Cart";
 
 function App() {
   return (
     <div>
-      <Router>
-        <Header />
-        <SiteRoutes />
-      </Router>
+      <CartProvider>
+        <Router>
+          <Header />
+          <SiteRoutes />
+        </Router>
+      </CartProvider>
     </div>
   );
 }
