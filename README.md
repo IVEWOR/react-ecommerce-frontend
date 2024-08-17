@@ -19,5 +19,5 @@ Simple React Ecommerce Frontend
 - [ ] All Categories Page
 - [ ] Product Page
 - [ ] All Products Page
-- [ ] Add To Cart
+- [x] Add To Cart
 - [ ] Checkout

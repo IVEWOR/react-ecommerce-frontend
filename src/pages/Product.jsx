@@ -7,7 +7,7 @@ export default function Product() {
     const { productId } = useParams();
     const [product, setProduct] = useState([]);
     const cart = useContext(CartContext);
-    console.log(cart);
+
     useEffect(() => {
         const fetchData = async () => {
             const response = await fetch(`https://fakestoreapi.com/products/${productId}`);
@@ -16,6 +16,7 @@ export default function Product() {
         }
         fetchData();
     }, [productId])
+
     return (
         <Container>
             <div className="grid grid-cols-2 gap-4 py-4">
@@ -46,7 +47,7 @@ export default function Product() {
                     <button className="bg-zinc-950 text-white font-semibold p-3 w-full focus:outline focus:outline-4 focus:outline-zinc-400 rounded-lg flex items-center justify-center gap-2"
                         onClick={() => cart.setItems([
                             ...cart.items,
-                            { title: product.title, price: product.price }
+                            { title: product.title, price: product.price, image: product.image, description: product.description }
                         ])}>
                         <span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
