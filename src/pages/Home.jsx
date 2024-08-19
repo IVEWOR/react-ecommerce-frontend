@@ -12,7 +12,6 @@ import ProductLoop from "../components/ProductLoop";
 export default function Home() {
     const marqueeRef = useRef(null);
     const prods = useContext(ProductsContext);
-    console.log(prods.products)
 
     useEffect(() => {
         const marquee = marqueeRef.current;
@@ -30,7 +29,7 @@ export default function Home() {
                             <div className="pb-10">
                                 <p className="uppercase text-sm text-white tracking-wider mb-4">All Products</p>
                                 <h1 className="text-white text-3xl font-semibold mb-6">React Ecommerce Store</h1>
-                                <button className="border-2 border-white text-sm text-white font-semibold p-2 px-4 transition-all hover:bg-white hover:text-zinc-950 focus:outline focus:outline-4 focus:outline-zinc-400 rounded-lg">Shop Now</button>
+                                <button className="border-2 border-white text-sm text-zinc-950 font-semibold p-2 px-4 transition-all bg-white hover:bg-transparent hover:text-white focus:outline focus:outline-4 focus:outline-zinc-400 rounded-lg">Shop Now</button>
                             </div>
                         </div>
                     </Container>
@@ -40,27 +39,27 @@ export default function Home() {
                 <Container>
                     <div className="text-center pt-20 pb-10">
                         <img className="mx-auto" src={bag} alt="bag" width="120px" />
-                        <h2 className="max-w-[500px] mx-auto uppercase text-4xl mt-4 tracking-wider">Our aim: offer elegant, timeless & functional products</h2>
+                        <h2 className="max-w-[500px] mx-auto uppercase md:text-4xl text-2xl mt-4 tracking-wider">Our aim: offer elegant, timeless & functional products</h2>
                         <div className="flex items-center justify-center gap-4 mt-4">
                             <a className="border-b border-b-transparent hover:border-zinc-400 transition-all" href="">Our Story</a>
                             <a className="border-b border-b-transparent hover:border-zinc-400 transition-all" href="">All Products</a>
                         </div>
                     </div>
                     <div className="grid grid-cols-5 gap-4 pt-4 pb-20">
-                        <div className="col-span-3 relative overflow-hidden">
+                        <div className="md:col-span-3 col-span-5 relative overflow-hidden">
                             <a href="/category/women's%20clothing">
                                 <img className="w-full h-full object-cover transform transition-transform duration-1000 ease-in-out hover:scale-110" src={women} alt="womens" />
                                 <h3 className="uppercase text-white absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">Women</h3>
                             </a>
                         </div>
-                        <div className="col-span-2 grid gap-4">
-                            <div className="relative overflow-hidden">
+                        <div className="md:col-span-2 col-span-5 grid gap-4 grid-cols-2">
+                            <div className="relative overflow-hidden md:col-span-2 col-span-2">
                                 <a href="/category/men's%20clothing">
                                     <img className="w-full h-full object-cover transform transition-transform duration-1000 ease-in-out hover:scale-110" src={men} alt="mens" />
                                     <h3 className="uppercase text-white absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">Men</h3>
                                 </a>
                             </div>
-                            <div className="relative overflow-hidden">
+                            <div className="relative overflow-hidden  md:col-span-2 col-span-2">
                                 <a href="/category/jewelery">
                                     <img className="w-full h-full object-cover transform transition-transform duration-1000 ease-in-out hover:scale-110" src={others} alt="jewelery" />
                                     <h3 className="uppercase text-white absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">jewelery</h3>
@@ -82,9 +81,15 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <div>
-                <ProductLoop products={prods.products} />
-            </div>
+            <Container>
+                <div className="py-20">
+                    <h2 className="uppercase md:text-4xl text-2xl mt-4 tracking-wider text-center pb-10">Latest Products</h2>
+                    <ProductLoop products={prods.products.slice(0, 8)} />
+                    <div className="text-center">
+                        <a className="bg-zinc-950 text-white p-3 px-5 rounded-lg focus:outline focus:outline-4 focus:outline-zinc-400 mt-20 inline-block" href="/products">See All Products</a>
+                    </div>
+                </div>
+            </Container>
         </>
     )
 }

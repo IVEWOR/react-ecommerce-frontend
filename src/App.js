@@ -3,6 +3,7 @@ import SiteRoutes from "./components/SiteRoutes";
 import Header from "./components/header/Header";
 import { CartProvider } from "./context/Cart";
 import { ProductsProvider } from "./context/Products";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Router>
             <Header />
             <SiteRoutes />
+            <Footer />
           </Router>
         </CartProvider>
       </ProductsProvider>
